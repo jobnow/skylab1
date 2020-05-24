@@ -56,7 +56,7 @@ app.delete("/repositories/:id", (request, response) => {
 });
 
 //Rota que cadastra likes no repositorio de 1 em 1, optei pelo put porém da pra usar post.
-app.put("/repositories/:id/like", (request, response) => {
+app.post("/repositories/:id/like", (request, response) => {
   const { id } = request.params
 
   const repository = repositories.find(repository => repository.id === id)
@@ -69,7 +69,7 @@ app.put("/repositories/:id/like", (request, response) => {
   return response.json(repository)
 });
 
-//Rota que deleta um like (optei por deixar negativo tbm, funcionando como um sistema de deslike)
+//Rota que deleta um like (optei por deixar negativo tbm, funcionando como um sistema de deslike).
 app.delete("/repositories/:id/like", (request, response) => {
   const { id } = request.params
 
